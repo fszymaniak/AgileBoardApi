@@ -16,6 +16,8 @@
 
             public const string Update = Base + "/userstories/{userStoryId}";
 
+            public const string PatchUpdate = Base + "/userstories/{userStoryId}";
+
             public const string Create = Base + "/userstories";
             
             public const string Delete = Base + "/userstories/{userStoryId}";

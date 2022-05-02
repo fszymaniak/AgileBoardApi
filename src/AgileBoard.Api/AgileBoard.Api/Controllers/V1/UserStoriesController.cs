@@ -5,6 +5,7 @@ using AgileBoard.Api.Domain;
 using AgileBoard.Api.Extensions;
 using AgileBoard.Api.Services;
 using AutoMapper;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AgileBoard.Api.Controllers.V1
@@ -81,6 +82,20 @@ namespace AgileBoard.Api.Controllers.V1
 
             if (updated)
                 return Ok(_mapper.Map<UserStoryResponse>(userStory));
+
+            return NotFound();
+        }
+
+        [HttpPatch(ApiRoutes.UserStories.PatchUpdate)]
+        public async Task<IActionResult> PatchUpdate([FromRoute] Guid userStoryId, [FromBody] JsonPatchDocument request)
+        {
+            var updated = await _userStoryService.PatchUpdateUserStoryAsync(userStoryId, request);
+
+            if (updated)
+            {
+                var userStory = await _userStoryService.GetUserStoryByIdAsync(userStoryId);
+                return Ok(_mapper.Map<UserStoryResponse>(userStory));
+            }
 
             return NotFound();
         }

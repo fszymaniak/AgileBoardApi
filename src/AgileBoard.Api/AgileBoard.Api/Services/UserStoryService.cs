@@ -1,5 +1,6 @@
 ﻿using AgileBoard.Api.Data;
 using AgileBoard.Api.Domain;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 
 namespace AgileBoard.Api.Services
@@ -47,6 +48,17 @@ namespace AgileBoard.Api.Services
 
             var deleted = await _dataContext.SaveChangesAsync();
             return deleted > 0;
+        }
+
+        public async Task<bool> PatchUpdateUserStoryAsync(Guid userStoryId, JsonPatchDocument userStoryToPatchUpdate)
+        {
+            var userStory = await GetUserStoryByIdAsync(userStoryId);
+            if (userStory == null)
+                return false;
+
+            userStoryToPatchUpdate.ApplyTo(userStory);
+            var updated = await _dataContext.SaveChangesAsync();
+            return updated > 0;
         }
     }
 }
