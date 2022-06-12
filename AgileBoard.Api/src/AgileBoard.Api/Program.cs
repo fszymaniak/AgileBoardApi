@@ -1,4 +1,4 @@
-using TweetAppDotNet5.Installer;
+using AgileBoard.Api.Installers;
 
 var builder = WebApplication.CreateBuilder(args);
 

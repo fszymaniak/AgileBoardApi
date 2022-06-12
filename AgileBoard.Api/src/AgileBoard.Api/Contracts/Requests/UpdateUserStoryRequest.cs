@@ -1,4 +1,6 @@
-﻿namespace AgileBoard.Api.Contracts.Requests
+﻿using AgileBoard.Api.Enums;
+
+namespace AgileBoard.Api.Contracts.Requests
 {
     public class UpdateUserStoryRequest
     {
@@ -16,11 +18,11 @@
 
         public string? Comments { get; set; }
 
-        public int StoryPoints { get; set; }
+        public StoryPoints? StoryPoints { get; set; }
 
-        public int Priority { get; set; }
+        public Priority? Priority { get; set; }
 
-        public string? Risk { get; set; }
+        public Risk? Risk { get; set; }
 
         public DateTime? Deadline { get; set; }
     }

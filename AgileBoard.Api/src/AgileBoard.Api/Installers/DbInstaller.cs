@@ -3,7 +3,7 @@ using AgileBoard.Api.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace TweetAppDotNet5.Installer
+namespace AgileBoard.Api.Installers
 {
     public class DbInstaller : IInstaller
     {

@@ -24,14 +24,15 @@ namespace AgileBoard.Api.Controllers.V1
         }
 
         [HttpGet(ApiRoutes.UserStories.GetAll)]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAllAsync()
         {
             var userStories = await _userStoryService.GetUserStoriesAsync();
-            return Ok(_mapper.Map<List<UserStoryResponse>>(userStories));
+            var result = _mapper.Map<IEnumerable<UserStoryResponse>>(userStories);
+            return Ok(result);
         }
 
         [HttpGet(ApiRoutes.UserStories.Get)]
-        public async Task<IActionResult> Get([FromRoute] Guid userStoryId)
+        public async Task<IActionResult> GetAsync([FromRoute] Guid userStoryId)
         {
             var userStory = await _userStoryService.GetUserStoryByIdAsync(userStoryId);
             if(userStory == null)
@@ -43,7 +44,7 @@ namespace AgileBoard.Api.Controllers.V1
         }
 
         [HttpPost(ApiRoutes.UserStories.Create)]
-        public async Task<IActionResult> Create([FromBody] CreateUserStoryRequest request)
+        public async Task<IActionResult> CreateAsync([FromBody] CreateUserStoryRequest request)
         {
             var userStory = new UserStory
             {
@@ -72,7 +73,7 @@ namespace AgileBoard.Api.Controllers.V1
         }
 
         [HttpPut(ApiRoutes.UserStories.Update)]
-        public async Task<IActionResult> Update([FromRoute] Guid userStoryId, [FromBody] UpdateUserStoryRequest request)
+        public async Task<IActionResult> UpdateAsync([FromRoute] Guid userStoryId, [FromBody] UpdateUserStoryRequest request)
         {
             var userStory = await _userStoryService.GetUserStoryByIdAsync(userStoryId);
             userStory.UpdateUserStory(request);
@@ -87,7 +88,7 @@ namespace AgileBoard.Api.Controllers.V1
         }
 
         [HttpPatch(ApiRoutes.UserStories.PatchUpdate)]
-        public async Task<IActionResult> PatchUpdate([FromRoute] Guid userStoryId, [FromBody] JsonPatchDocument request)
+        public async Task<IActionResult> PatchUpdateAsync([FromRoute] Guid userStoryId, [FromBody] JsonPatchDocument request)
         {
             var updated = await _userStoryService.PatchUpdateUserStoryAsync(userStoryId, request);
 
@@ -101,7 +102,7 @@ namespace AgileBoard.Api.Controllers.V1
         }
 
         [HttpDelete(ApiRoutes.UserStories.Delete)]
-        public async Task<IActionResult> Delete([FromRoute] Guid userStoryId)
+        public async Task<IActionResult> DeleteAsync([FromRoute] Guid userStoryId)
         {
             var deleted =  await _userStoryService.DeleteUserStoryAsync(userStoryId);
 

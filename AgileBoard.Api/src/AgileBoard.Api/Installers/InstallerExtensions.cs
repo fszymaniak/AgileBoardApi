@@ -1,9 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Linq;
-
-namespace TweetAppDotNet5.Installer
+﻿namespace AgileBoard.Api.Installers
 {
     public static class InstallerExtensions
     {
