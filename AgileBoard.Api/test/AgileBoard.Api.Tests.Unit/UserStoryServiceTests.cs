@@ -311,7 +311,6 @@ namespace AgileBoard.Api.Tests.Unit
                 .ReturnsAsync(true);
 
             // Act
-
             var result = await _sut.DeleteUserStoryAsync(userStoryId);
 
             // Assert
@@ -328,7 +327,6 @@ namespace AgileBoard.Api.Tests.Unit
                 .ReturnsAsync(false);
 
             // Act
-
             var result = await _sut.DeleteUserStoryAsync(userStoryId);
 
             // Assert
@@ -345,7 +343,6 @@ namespace AgileBoard.Api.Tests.Unit
                 .ReturnsAsync(true);
 
             // Act
-
             var result = await _sut.DeleteUserStoryAsync(userStoryId);
 
             // Assert
@@ -364,7 +361,6 @@ namespace AgileBoard.Api.Tests.Unit
                 .ThrowsAsync(dbException);
 
             // Act
-
             var result = async () => await _sut.DeleteUserStoryAsync(userStoryId);
 
             // Assert
@@ -398,7 +394,6 @@ namespace AgileBoard.Api.Tests.Unit
                 .ReturnsAsync(true);
 
             // Act
-
             var result = await _sut.UpdateUserStoryAsync(userStoryToUpdate);
 
             // Assert
@@ -431,7 +426,6 @@ namespace AgileBoard.Api.Tests.Unit
                 .ReturnsAsync(false);
 
             // Act
-
             var result = await _sut.UpdateUserStoryAsync(userStoryToUpdate);
 
             // Assert

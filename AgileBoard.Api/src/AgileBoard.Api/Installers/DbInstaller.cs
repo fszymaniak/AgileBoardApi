@@ -1,4 +1,6 @@
 ﻿using AgileBoard.Api.Data;
+using AgileBoard.Api.Logging;
+using AgileBoard.Api.Repositories;
 using AgileBoard.Api.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +20,8 @@ namespace AgileBoard.Api.Installers
                 .AddEntityFrameworkStores<DataContext>();
 
             builder.Services.AddScoped<IUserStoryService, UserStoryService>();
+            builder.Services.AddScoped<IUserStoryRepository, UserStoryRepository>();
+            builder.Services.AddTransient(typeof(ILoggerAdapter<>), typeof(LoggerAdapter<>));
         }
     }
 }
