@@ -6,7 +6,7 @@ namespace AgileBoard.Api.Domain
     {
         public Guid Id { get; set; }
 
-        public string Title { get; set; }
+        public string Title { get; set; } = null!;
 
         public string? Owner { get; set; }
 
@@ -20,7 +20,7 @@ namespace AgileBoard.Api.Domain
 
         public string? Comments { get; set; }
 
-        public StoryPoints? StoryPoints { get; set; }
+        public int? StoryPoints { get; set; }
 
         public Priority? Priority { get; set; }
 

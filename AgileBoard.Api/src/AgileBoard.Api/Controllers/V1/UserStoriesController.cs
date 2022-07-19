@@ -1,4 +1,5 @@
-﻿using AgileBoard.Api.Contracts.Requests;
+﻿using AgileBoard.Api.Clock;
+using AgileBoard.Api.Contracts.Requests;
 using AgileBoard.Api.Contracts.Responses;
 using AgileBoard.Api.Contracts.V1;
 using AgileBoard.Api.Domain;
@@ -11,23 +12,26 @@ using Microsoft.AspNetCore.Mvc;
 namespace AgileBoard.Api.Controllers.V1
 {
     [ApiController]
-    [Route("[controller]")]
     public class UserStoriesController : ControllerBase
     {
         private readonly IUserStoryService _userStoryService;
         private readonly IMapper _mapper;
+        private readonly IClock _clock;
 
-        public UserStoriesController(IUserStoryService userStoryService, IMapper mapper)
+        public UserStoriesController(IUserStoryService userStoryService, IMapper mapper, IClock clock)
         {
             _userStoryService = userStoryService;
             _mapper = mapper;
+            _clock = clock;
         }
 
         [HttpGet(ApiRoutes.UserStories.GetAll)]
         public async Task<IActionResult> GetAllAsync()
         {
             var userStories = await _userStoryService.GetUserStoriesAsync();
-            var result = _mapper.Map<IEnumerable<UserStoryResponse>>(userStories);
+            //var result = userStories.Select(x => x.ToUserStoryResponse());
+            var result = userStories.Select(_mapper.Map<IEnumerable<UserStoryResponse>>);
+            //var result = _mapper.Map<IList<UserStory>>(userStories);
             return Ok(result);
         }
 
@@ -37,7 +41,7 @@ namespace AgileBoard.Api.Controllers.V1
             var userStory = await _userStoryService.GetUserStoryByIdAsync(userStoryId);
             if(userStory == null)
             {
-                return NotFound();
+                throw new KeyNotFoundException("User Story cannot be found");
             }
 
             return Ok(_mapper.Map<UserStoryResponse>(userStory));
@@ -60,7 +64,7 @@ namespace AgileBoard.Api.Controllers.V1
                 Priority = request.Priority,
                 Risk = request.Risk,
                 Deadline = request.Deadline,
-                Created = DateTime.UtcNow,
+                Created = _clock.DateTimeNow,
                 Updated = null
             };
 
@@ -84,7 +88,7 @@ namespace AgileBoard.Api.Controllers.V1
             if (updated)
                 return Ok(_mapper.Map<UserStoryResponse>(userStory));
 
-            return NotFound();
+            throw new KeyNotFoundException("Updated User Story cannot be found");
         }
 
         [HttpPatch(ApiRoutes.UserStories.PatchUpdate)]
@@ -98,7 +102,7 @@ namespace AgileBoard.Api.Controllers.V1
                 return Ok(_mapper.Map<UserStoryResponse>(userStory));
             }
 
-            return NotFound();
+            throw new KeyNotFoundException("User Story for PATCH update cannot be found");
         }
 
         [HttpDelete(ApiRoutes.UserStories.Delete)]
@@ -109,7 +113,7 @@ namespace AgileBoard.Api.Controllers.V1
             if(deleted)
                 return NoContent();
 
-            return NotFound();
+            throw new KeyNotFoundException("User Story for deletion cannot be found");
         }
     }
 }

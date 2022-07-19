@@ -20,7 +20,7 @@ namespace AgileBoard.Api.Contracts.Responses
 
         public string? Comments { get; set; }
 
-        public StoryPoints? StoryPoints { get; set; }
+        public int? StoryPoints { get; set; }
 
         public Priority? Priority { get; set; }
 

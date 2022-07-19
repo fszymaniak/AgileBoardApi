@@ -4,7 +4,7 @@ namespace AgileBoard.Api.Contracts.Requests
 {
     public class CreateUserStoryRequest
     {
-        public string Title { get; set; }
+        public string Title { get; set; } = null!;
 
         public string? Owner { get; set; }
 
@@ -18,7 +18,7 @@ namespace AgileBoard.Api.Contracts.Requests
 
         public string? Comments { get; set; }
 
-        public StoryPoints? StoryPoints { get; set; }
+        public int? StoryPoints { get; set; }
 
         public Priority? Priority { get; set; }
 

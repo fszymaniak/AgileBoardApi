@@ -1,10 +1,13 @@
-﻿using AgileBoard.Api.Contracts.Requests;
+﻿using AgileBoard.Api.Clock;
+using AgileBoard.Api.Contracts.Requests;
 using AgileBoard.Api.Domain;
 
 namespace AgileBoard.Api.Extensions
 {
     public static class UserStoryExtensions
     {
+        private static readonly IClock? _clock;
+
         public static void UpdateUserStory(this UserStory userStory, UpdateUserStoryRequest request)
         {
             userStory.Title = request.Title;
@@ -18,7 +21,7 @@ namespace AgileBoard.Api.Extensions
             userStory.Priority = request.Priority;
             userStory.Risk = request.Risk;
             userStory.Deadline = request.Deadline;
-            userStory.Updated = DateTime.UtcNow;
+            userStory.Updated = _clock.DateTimeNow;
         }
     }
 }

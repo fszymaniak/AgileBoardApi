@@ -59,7 +59,7 @@ namespace AgileBoard.Api.Tests.Unit
                     DefintionOfReady = "Test DoR",
                     DefinitionOfDone = "Test DoD",
                     Comments = null,
-                    StoryPoints = StoryPoints.Five,
+                    StoryPoints = 5,
                     Priority = Priority.Two,
                     Risk = Risk.Medium,
                     Deadline = deadline,
@@ -83,7 +83,7 @@ namespace AgileBoard.Api.Tests.Unit
             userStories.Should().ContainSingle(x => x.DefintionOfReady == "Test DoR");
             userStories.Should().ContainSingle(x => x.DefinitionOfDone == "Test DoD");
             userStories.Should().ContainSingle(x => x.Comments == null);
-            userStories.Should().ContainSingle(x => x.StoryPoints == StoryPoints.Five);
+            userStories.Should().ContainSingle(x => x.StoryPoints == 5);
             userStories.Should().ContainSingle(x => x.Priority == Priority.Two);
             userStories.Should().ContainSingle(x => x.Risk == Risk.Medium);
             userStories.Should().ContainSingle(x => x.Deadline == deadline);
@@ -150,7 +150,7 @@ namespace AgileBoard.Api.Tests.Unit
                 DefintionOfReady = "Test DoR",
                 DefinitionOfDone = "Test DoD",
                 Comments = null,
-                StoryPoints = StoryPoints.Five,
+                StoryPoints = 5,
                 Priority = Priority.Two,
                 Risk = Risk.Medium,
                 Deadline = DateTime.UtcNow.AddDays(3),
@@ -216,7 +216,7 @@ namespace AgileBoard.Api.Tests.Unit
                 DefintionOfReady = "Test DoR",
                 DefinitionOfDone = "Test DoD",
                 Comments = null,
-                StoryPoints = StoryPoints.Five,
+                StoryPoints = 5,
                 Priority = Priority.Two,
                 Risk = Risk.Medium,
                 Deadline = DateTime.UtcNow.AddDays(3),
@@ -248,7 +248,7 @@ namespace AgileBoard.Api.Tests.Unit
                 DefintionOfReady = "Test DoR",
                 DefinitionOfDone = "Test DoD",
                 Comments = null,
-                StoryPoints = StoryPoints.Five,
+                StoryPoints = 5,
                 Priority = Priority.Two,
                 Risk = Risk.Medium,
                 Deadline = DateTime.UtcNow.AddDays(3),
@@ -282,7 +282,7 @@ namespace AgileBoard.Api.Tests.Unit
                 DefintionOfReady = "Test DoR",
                 DefinitionOfDone = "Test DoD",
                 Comments = null,
-                StoryPoints = StoryPoints.Five,
+                StoryPoints = 5,
                 Priority = Priority.Two,
                 Risk = Risk.Medium,
                 Deadline = DateTime.UtcNow.AddDays(3),
@@ -382,7 +382,7 @@ namespace AgileBoard.Api.Tests.Unit
                 DefintionOfReady = "Test DoR UPDATED",
                 DefinitionOfDone = "Test DoD UPDATED",
                 Comments = null,
-                StoryPoints = StoryPoints.Five,
+                StoryPoints = 5,
                 Priority = Priority.Two,
                 Risk = Risk.Medium,
                 Deadline = DateTime.UtcNow.AddDays(3),
@@ -414,7 +414,7 @@ namespace AgileBoard.Api.Tests.Unit
                 DefintionOfReady = "Test DoR UPDATED",
                 DefinitionOfDone = "Test DoD UPDATED",
                 Comments = null,
-                StoryPoints = StoryPoints.Five,
+                StoryPoints = 5,
                 Priority = Priority.Two,
                 Risk = Risk.Medium,
                 Deadline = DateTime.UtcNow.AddDays(3),
@@ -446,7 +446,7 @@ namespace AgileBoard.Api.Tests.Unit
                 DefintionOfReady = "Test DoR UPDATED",
                 DefinitionOfDone = "Test DoD UPDATED",
                 Comments = null,
-                StoryPoints = StoryPoints.Five,
+                StoryPoints = 5,
                 Priority = Priority.Two,
                 Risk = Risk.Medium,
                 Deadline = DateTime.UtcNow.AddDays(3),
