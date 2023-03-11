@@ -11,11 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BE8EC9FE-AE4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F2D9FC0F-3DF0-414C-B458-AA2B200568D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileBoard.Core", "AgileBoard.Core\AgileBoard.Core.csproj", "{052FEAB7-7051-49CD-847C-00D8B06CE819}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileBoard.Core", "src\AgileBoard.Core\AgileBoard.Core.csproj", "{052FEAB7-7051-49CD-847C-00D8B06CE819}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileBoard.Application", "AgileBoard.Application\AgileBoard.Application.csproj", "{5C427060-DE34-419A-856F-189CD22C5EF1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileBoard.Application", "src\AgileBoard.Application\AgileBoard.Application.csproj", "{5C427060-DE34-419A-856F-189CD22C5EF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileBoard.Infrastructure", "AgileBoard.Infrastructure\AgileBoard.Infrastructure.csproj", "{7AA3E73A-FF64-4406-BAFE-390B9801343A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileBoard.Infrastructure", "src\AgileBoard.Infrastructure\AgileBoard.Infrastructure.csproj", "{7AA3E73A-FF64-4406-BAFE-390B9801343A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
